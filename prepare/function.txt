@@ -1,0 +1,12 @@
+// prepare
+
+if (isset($_POST['prepare'])){
+$idp = $_POST['idp'];
+$iduser = $_POST['iduser'];
+$jum = count($idp);
+
+for($i = 0 ; $i < $jum ; $i++){
+    $insert = mysqli_query($conn, "INSERT INTO toko_prepare(id_product,id_user,status) VALUES ('$idp[$i]','$iduser[$i]','unprocessed')");
+}
+header('location:?url=prepare');
+}
